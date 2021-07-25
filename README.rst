@@ -159,7 +159,7 @@ TODO
 
 本项目可以作为一个模板
 
-1. 修改 afwf_rand_pass 文件夹名, 这是你的 workflow 的 python library 的名称, 你可以改成你的 library 的名字
-2. 修改 setup.py 里的 ``import afwf_rand_pass as package``, 改成你的 library 的名字
-3. 修改 requirements.txt 里你所需要的依赖包
-4. 修改所有包含 ``import afwf_rand_pass ... `` 相关的代码. 包括 main 以及 tests 里的.
+1. 修改 ``afwf_rand_pass`` 文件夹名, 这是你的 workflow 的 python library 的名称, 你可以改成你的 library 的名字
+2. 修改 ``setup.py`` 里的 ``import afwf_rand_pass as package``, 改成你的 library 的名字
+3. 修改 ``requirements.txt`` 里你所需要的依赖包
+4. 修改所有包含 ``import afwf_rand_pass ...`` 相关的代码. 包括 main 以及 tests 里的.
