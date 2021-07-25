@@ -28,8 +28,9 @@ def main(wf):
     wf = handler(wf)
 
     # 将 Python 收到的 args 以及返回的 items 保存为 json 文件, 用于调试
-    json_dump(wf_input_file, wf.args)
-    json_dump(wf_output_file, wf.obj)
+    if "user.workflow" not in here: # don't dump if in alfred preference folder
+        json_dump(wf_input_file, wf.args)
+        json_dump(wf_output_file, wf.obj)
 
     wf.send_feedback()
 

@@ -134,6 +134,26 @@ Alfred Workflow 的核心原理
 值得注意的是, 在 main.py 文件中我们用把输出的 argument 和 输出的 json 都写入到项目目录下的 wf-input.json 和 wf-output.json 文件中了. 这样使得开发者在用 alfred 输入命令后, 能在这两个文件中看到 Python 获得的输入和输出数据, 便于调试.
 
 
+在本地构建 Workflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+首先在 Alfred Workflow 的界面的左边选择你的 Workflow, 并右键点击 -> Open in Finder 在文件夹中打开. 然后将该文件夹路径拷贝, 这是你实际的 Alfred Workflow 所在的目录, 路径类似于 ``/path-to/Alfred.alfredpreferences/workflows/user.workflow.A123B456-C123-4567-8910-ABCDEFGHIJKL``
+
+然后打开 ``./bin/build-wf.sh`` 将该路径粘贴到 ``dir_workflow`` 变量中, 然后运行. 其原理是在指定路径下, 清楚并构建 ``./lib``, ``./workflow``, ``./main.py``.
+
+最后在 Alfred Workflow 中的界面中打开 Script Filter, 将命令行命令替换为如下, 使用系统的 Python 而不是 Virtualenv 中的 Python 即可. (你的用户可不会用 Virtualenv)
+
+.. code-block:: bash
+
+    /usr/bin/python main.py {query}
+
+
+发布你的 Workflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
 项目模板
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

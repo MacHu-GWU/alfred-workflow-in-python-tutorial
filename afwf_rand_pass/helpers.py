@@ -6,9 +6,10 @@ import string
 
 charset_upper = set(string.uppercase)
 charset_lower = set(string.lowercase)
+charset_alpha = set.union(charset_upper, charset_lower)
 charset_digits = set(string.digits)
 charset_symbols = set("!%@#&^*")
-charset_banned = set("lIO0")
+charset_banned = set("1lIO0")
 charset = set.union(
     charset_upper,
     charset_lower,
@@ -18,12 +19,17 @@ charset = set.union(
 charset_list = list(charset)
 
 
-def random_password(length, uppercase=True, symbol=True):
+def is_valid_password(password):
+    has_lower = len(set(password).intersection(charset_lower)) > 0
+    has_upper = len(set(password).intersection(charset_upper)) > 0
+    has_digits = len(set(password).intersection(charset_digits)) > 0
+    has_symbol = len(set(password).intersection(charset_symbols)) > 0
+    startswith_alpha = password[0] in charset_alpha
+    return has_lower and has_upper and has_digits and has_symbol and startswith_alpha
+
+
+def random_password(length):
     password = "".join([random.choice(charset_list) for _ in range(length)])
-    if uppercase:
-        if len(charset_upper.intersection(password)) == 0:
-            return random_password(length, uppercase=uppercase, symbol=symbol)
-    if symbol:
-        if len(charset_symbols.intersection(password)) == 0:
-            return random_password(length, uppercase=uppercase, symbol=symbol)
+    if not is_valid_password(password):
+        return random_password(length)
     return password
