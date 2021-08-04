@@ -151,7 +151,9 @@ Alfred Workflow 的核心原理
 发布你的 Workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+1. 创建一个跟你的版本号一致的 Branch
+2. 在本地的 Alfred Workflow 中, 右键点击你的 Workflow, 选择 Export
+3. 在 Github 上创建一个 Release, 从 Branch 发布, 然后手动上传刚才 Export 的 ``your-workflow-name.alfredworkflow`` 文件即可.
 
 
 项目模板
