@@ -1,12 +1,18 @@
 #!/bin/bash
+#
+# Build Alfred Workflow release from source code.
+# Basically it creates:
+#
+# - ${dir_workflow}/main.py
+# - ${dir_workflow}/lib
+# - ${dir_workflow}/workflow
 
 dir_here="$( cd "$(dirname "$0")" ; pwd -P )"
 dir_project_root="$(dirname "${dir_here}")"
 dir_venv="${dir_project_root}/venv"
 bin_pip="${dir_venv}/bin/pip"
 
-# Update this manually. Right click your workflow in Alfred Workflow view, then click open in finder.
-dir_workflow="/Users/sanhehu/Google Drive/Alfred Setting/Alfred.alfredpreferences/workflows/user.workflow.E388A044-E072-41AE-9860-B23213C86BA6"
+source ${dir_here}/settings.sh
 
 rm -r ${dir_workflow}/lib
 rm -r ${dir_workflow}/workflow
